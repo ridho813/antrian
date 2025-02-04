@@ -1,0 +1,44 @@
+<IfModule mod_rewrite.c>
+RewriteEngine on
+
+RewriteRule ^login$ login-form.php [L]
+RewriteRule ^login-failed$ login-form.php?alert=1 [L]
+RewriteRule ^logout$ login-form.php?alert=2 [L]
+RewriteRule ^login-error$ login-form.php?alert=3 [L]
+
+RewriteRule ^beranda$ main.php?module=beranda [L]
+
+RewriteRule ^antrian$ main.php?module=antrian [L]
+
+RewriteRule ^konfigurasi-aplikasi$ main.php?module=config [L]
+RewriteRule ^konfigurasi-aplikasi-success$ main.php?module=config&alert=1 [L]
+RewriteRule ^konfigurasi-aplikasi-error1$ main.php?module=config&alert=2 [L]
+RewriteRule ^konfigurasi-aplikasi-error2$ main.php?module=config&alert=3 [L]
+RewriteRule ^konfigurasi-aplikasi-error3$ main.php?module=config&alert=4 [L]
+
+RewriteRule ^user$ main.php?module=user [L]
+RewriteRule ^user-add$ main.php?module=form_user&form=add [L]
+RewriteRule ^user-update-(.*)$ main.php?module=form_user&form=edit&id=$1 [L]
+RewriteRule ^user-delete-(.*)$ modules/user/proses.php?act=delete&id=$1 [L]
+RewriteRule ^user-success-add$ main.php?module=user&alert=1 [L]
+RewriteRule ^user-success-update$ main.php?module=user&alert=2 [L]
+RewriteRule ^user-success-delete$ main.php?module=user&alert=3 [L]
+RewriteRule ^user-error1-(.*)$ main.php?module=user&id=$1&alert=4 [L]
+RewriteRule ^user-error2-(.*)$ main.php?module=user&id=$1&alert=5 [L]
+
+RewriteRule ^backup-database$ main.php?module=backup [L]
+RewriteRule ^backup-database-proses$ modules/backup-database/proses.php?act=backup [L]
+RewriteRule ^backup-database-delete-(.*)$ modules/backup-database/proses.php?act=delete&id=$1 [L]
+RewriteRule ^backup-database-success$ main.php?module=backup&alert=1 [L]
+RewriteRule ^backup-database-success-delete$ main.php?module=backup&alert=2 [L]
+
+RewriteRule ^password$ main.php?module=password [L]
+RewriteRule ^password-error1$ main.php?module=password&alert=1 [L]
+RewriteRule ^password-error2$ main.php?module=password&alert=2 [L]
+RewriteRule ^password-success$ main.php?module=password&alert=3 [L]
+
+ErrorDocument 404 http://transindo.epizy.com/sistem-antrian/petugas/error-404.html
+ErrorDocument 403 http://transindo.epizy.com/sistem-antrian/petugas/error-403.html
+
+Options All -Indexes
+</IfModule>

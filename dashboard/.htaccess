@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+RewriteEngine on
+
+RewriteRule ^beranda$ main.php?page=beranda [L]
+
+ErrorDocument 404 http://localhost/iStudio/Aplikasi-Antrian-Pengunjung-Berbasis-Web/dashboard/error-404.html
+ErrorDocument 403 http://localhost/iStudio/Aplikasi-Antrian-Pengunjung-Berbasis-Web/dashboard/error-403.html
+
+Options All -Indexes
+</IfModule>
